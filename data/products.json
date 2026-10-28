@@ -1,0 +1,304 @@
+[
+  {
+    "id": "gbt-001",
+    "slug": "padmavati-jadau-kundan-bridal-choker-set",
+    "title": "Padmavati Jadau Kundan Bridal Choker Set",
+    "tagline": "Handcrafted Uncut Glass Polki with Russian Hydro Emerald Drops",
+    "category": "Kundan & Polki Bridal",
+    "categorySlug": "kundan-polki-bridal",
+    "price": 5499,
+    "mrp": 8999,
+    "itemType": "MADE_TO_ORDER",
+    "leadTimeDays": 8,
+    "baseMaterial": "High-Density Brass Alloy",
+    "platingType": "24K Antique Micro Gold Plating",
+    "stoneType": "Faceted Uncut Kundan, Hand-carved Hydro Emeralds & Natural Seed Pearls",
+    "isGiftWrappable": true,
+    "isBestseller": true,
+    "rating": 4.9,
+    "reviewCount": 128,
+    "description": "Inspired by royal Mewari court heirlooms, the Padmavati Choker Set features intricate Meenakari enameling on reverse, dual-tier Jadau setting, matching statement chandelier earrings (chandbalis), and a majestic matching maang tikka. Hypoallergenic, tarnish-resistant, and tailored for big-day grandeur.",
+    "images": [
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1611591475102-470e7960098f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "variants": [
+      {
+        "id": "v1",
+        "name": "Emerald Green Drops",
+        "color": "#1C3B2B",
+        "stock": 4
+      },
+      {
+        "id": "v2",
+        "name": "Ruby Crimson Drops",
+        "color": "#8B1E2D",
+        "stock": 3
+      },
+      {
+        "id": "v3",
+        "name": "Pastel Mint Drops",
+        "color": "#A4C3B2",
+        "stock": 5
+      }
+    ]
+  },
+  {
+    "id": "gbt-002",
+    "slug": "surya-dev-temple-filigree-kada-pair",
+    "title": "Surya Dev Temple Filigree Kada (Pair)",
+    "tagline": "Openable Screw Heritage Bangles with Nakshi Carvings",
+    "category": "Bangles & Kadas",
+    "categorySlug": "bangles-kadas",
+    "price": 2899,
+    "mrp": 4500,
+    "itemType": "READY_TO_SHIP",
+    "leadTimeDays": 1,
+    "baseMaterial": "Pure Copper & Brass Composite",
+    "platingType": "Matte Temple Gold with Antique Patina",
+    "stoneType": "Cabochon Kemp Stones & Freshwater Seed Pearls",
+    "isGiftWrappable": true,
+    "isBestseller": true,
+    "rating": 4.8,
+    "reviewCount": 94,
+    "description": "Exquisite temple jewellery craftsmanship depicting solar motifs and divine peacock flourishes. Crafted with an ergonomic screw clasp to comfortably fit multiple wrist sizes with effortless grace. Nickel-safe and anti-allergic finish.",
+    "images": [
+      "https://images.unsplash.com/photo-1611591475102-470e7960098f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "variants": [
+      {
+        "id": "b-24",
+        "name": "Size 2.4 (Small - 57.2mm)",
+        "stock": 12
+      },
+      {
+        "id": "b-26",
+        "name": "Size 2.6 (Medium - 60.3mm)",
+        "stock": 18
+      },
+      {
+        "id": "b-28",
+        "name": "Size 2.8 (Large - 63.5mm)",
+        "stock": 9
+      }
+    ]
+  },
+  {
+    "id": "gbt-003",
+    "slug": "chandrika-dual-tone-oxidised-ghungroo-hasli",
+    "title": "Chandrika Dual-Tone Oxidised Ghungroo Hasli",
+    "tagline": "Tribal Silver Collar with Melodic Mini Ghungroos",
+    "category": "Oxidised Silver & Tribal",
+    "categorySlug": "oxidised-silver",
+    "price": 1950,
+    "mrp": 3200,
+    "itemType": "READY_TO_SHIP",
+    "leadTimeDays": 1,
+    "baseMaterial": "Sterling-Grade German Silver Base",
+    "platingType": "Oxidised Vintage Silver & Antique Brass Dual Tone",
+    "stoneType": "Mirror Glass & Carved Floral Motifs",
+    "isGiftWrappable": true,
+    "isBestseller": false,
+    "rating": 4.7,
+    "reviewCount": 67,
+    "description": "A striking statement rigid collar (hasli) that sits elegantly on the collarbone. Accentuated with chime-ready miniature ghungroos and traditional Rajasthani mirror glass work. Pairs seamlessly with handloom sarees, linen kurtas, or sharp black blazers.",
+    "images": [
+      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "variants": [
+      {
+        "id": "v-ox-1",
+        "name": "Vintage Dual Tone (Silver & Gold)",
+        "stock": 15
+      },
+      {
+        "id": "v-ox-2",
+        "name": "Full Antique Silver Patina",
+        "stock": 11
+      }
+    ]
+  },
+  {
+    "id": "gbt-004",
+    "slug": "lumina-anti-tarnish-celestial-paperclip-chain",
+    "title": "Lumina Anti-Tarnish Celestial Paperclip Chain",
+    "tagline": "Waterproof 18K PVD Gold Daily Layering Essential",
+    "category": "Brass & Copper Daily Wear",
+    "categorySlug": "daily-wear",
+    "price": 1499,
+    "mrp": 2400,
+    "itemType": "READY_TO_SHIP",
+    "leadTimeDays": 1,
+    "baseMaterial": "Hypoallergenic Surgical Brass Core",
+    "platingType": "18K PVD Physical Vapor Deposition (Waterproof)",
+    "stoneType": "Micro-Pavé AAA Grade Cubic Zirconia",
+    "isGiftWrappable": true,
+    "isBestseller": true,
+    "rating": 4.9,
+    "reviewCount": 182,
+    "description": "Built for the woman on the move. Shower-safe, sweat-safe, and perfume-resilient. Features an elongated paperclip chain link accompanied by a detachable celestial coin medallion embedded with star-cut cubic zirconia.",
+    "images": [
+      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "variants": [
+      {
+        "id": "v-ch-16",
+        "name": "16 inch + 2 inch Extender",
+        "stock": 25
+      },
+      {
+        "id": "v-ch-18",
+        "name": "18 inch + 2 inch Extender",
+        "stock": 20
+      }
+    ]
+  },
+  {
+    "id": "gbt-005",
+    "slug": "noor-baroque-pearl-droplet-modern-hoops",
+    "title": "Noor Baroque Pearl Droplet Modern Hoops",
+    "tagline": "Artisanal Organic Freshwater Pearls on Sculpted Gold",
+    "category": "Western Minimal",
+    "categorySlug": "western-minimal",
+    "price": 1699,
+    "mrp": 2850,
+    "itemType": "READY_TO_SHIP",
+    "leadTimeDays": 1,
+    "baseMaterial": "Solid Eco-Brass",
+    "platingType": "Thick 2.5 Micron 18K Yellow Gold Dip",
+    "stoneType": "Cultured Baroque Pearls (100% Unique Silhouette)",
+    "isGiftWrappable": true,
+    "isBestseller": false,
+    "rating": 4.8,
+    "reviewCount": 51,
+    "description": "Every single baroque pearl is hand-selected for its distinctive organic silhouette and rainbow orient luster. Suspended from brushed gold demi-hoops with secure click-shut hinge posts. Effortlessly transitions from office presentations to cocktail evenings.",
+    "images": [
+      "https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "variants": [
+      {
+        "id": "v-nr-classic",
+        "name": "Warm Gold Clasp",
+        "stock": 14
+      },
+      {
+        "id": "v-nr-rose",
+        "name": "Rose Gold Clasp",
+        "stock": 8
+      }
+    ]
+  },
+  {
+    "id": "gbt-006",
+    "slug": "gulmohar-royal-jadau-sheeshpatti-mathapatti",
+    "title": "Gulmohar Royal Jadau Sheeshpatti Mathapatti",
+    "tagline": "Architectural Bridal Hair Jewellery with Kashmiri Pearls",
+    "category": "Hair Accessories",
+    "categorySlug": "hair-accessories",
+    "price": 3799,
+    "mrp": 5999,
+    "itemType": "MADE_TO_ORDER",
+    "leadTimeDays": 10,
+    "baseMaterial": "Jeweller's Copper & Brass Alloy",
+    "platingType": "22K High-Luster Antique Micro-Plating",
+    "stoneType": "Polki Kundan, Ruby Quartz & Hand-Strung Pearls",
+    "isGiftWrappable": true,
+    "isBestseller": true,
+    "rating": 5.0,
+    "reviewCount": 43,
+    "description": "A crowning glory for Indian bridal couture. The Gulmohar Sheeshpatti features a flexible curved band lined with velvet on the underside for hours of pin-free comfort. Encrusted with brilliant faceted Kundan stones and delicate pearl cluster drops framing the forehead.",
+    "images": [
+      "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "variants": [
+      {
+        "id": "v-sp-ruby",
+        "name": "Ruby & Kundan White",
+        "stock": 6
+      },
+      {
+        "id": "v-sp-pearl",
+        "name": "Monochrome Royal Ivory Kundan",
+        "stock": 8
+      }
+    ]
+  },
+  {
+    "id": "gbt-007",
+    "slug": "meera-meenakari-peacock-chandbalis",
+    "title": "Meera Hand-Enamelled Meenakari Chandbalis",
+    "tagline": "Traditional Banarasi Karigari with Jhumki Clusters",
+    "category": "Kundan & Polki Bridal",
+    "categorySlug": "kundan-polki-bridal",
+    "price": 2499,
+    "mrp": 3999,
+    "itemType": "READY_TO_SHIP",
+    "leadTimeDays": 2,
+    "baseMaterial": "Brass and Copper Base",
+    "platingType": "22K Antique Gold with Lacquer Coating",
+    "stoneType": "Kundan Stones with Hand-painted Green & Pink Enamel",
+    "isGiftWrappable": true,
+    "isBestseller": true,
+    "rating": 4.9,
+    "reviewCount": 115,
+    "description": "Hand-painted by generational karigars in Varanasi, these crescent moon earrings (chandbalis) showcase vibrant floral meenakari on the reverse and shimmering kundan on the front, edged with natural seed pearl bunches. Lightweight ear-supports included.",
+    "images": [
+      "https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1611591475102-470e7960098f?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "variants": [
+      {
+        "id": "v-mr-green",
+        "name": "Emerald Meenakari & Pearl",
+        "stock": 16
+      },
+      {
+        "id": "v-mr-rani",
+        "name": "Rani Pink Meenakari & Pearl",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "gbt-008",
+    "slug": "aurora-baguette-solitaire-tennis-bracelet",
+    "title": "Aurora Baguette Solitaire Tennis Bracelet",
+    "tagline": "Couture Diamond-Alternative with Double Safety Clasp",
+    "category": "Western Minimal",
+    "categorySlug": "western-minimal",
+    "price": 2199,
+    "mrp": 3600,
+    "itemType": "READY_TO_SHIP",
+    "leadTimeDays": 1,
+    "baseMaterial": "Hypoallergenic Pure Brass Alloy",
+    "platingType": "Rhodium Platinum & 18K White Gold Dual Dipped",
+    "stoneType": "Heart & Arrow Flawless 5A Cubic Zirconia",
+    "isGiftWrappable": true,
+    "isBestseller": false,
+    "rating": 4.8,
+    "reviewCount": 78,
+    "description": "Precision prong-set with alternating round brilliant and baguette-cut simulated diamonds that sparkle intensely under candlelight and flash photography. Features an authentic double-safety jewelry latch for worry-free luxury wear.",
+    "images": [
+      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "variants": [
+      {
+        "id": "v-ar-silver",
+        "name": "Platinum Rhodium Silver",
+        "stock": 18
+      },
+      {
+        "id": "v-ar-gold",
+        "name": "Champagne Warm Gold",
+        "stock": 14
+      }
+    ]
+  }
+]

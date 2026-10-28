@@ -1,0 +1,58 @@
+import { Category } from "@/types";
+
+export const CATEGORIES: Category[] = [
+  {
+    id: "cat-1",
+    slug: "kundan-polki-bridal",
+    name: "Kundan & Polki Bridal",
+    subtitle: "Uncut Glass Polki, Jadau Chokers & Banarasi Meenakari",
+    badge: "Bridal Heirloom",
+    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80",
+    accentColor: "#1C3B2B",
+  },
+  {
+    id: "cat-2",
+    slug: "bangles-kadas",
+    name: "Bangles & Kadas",
+    subtitle: "Openable Screw Filigree, Temple Nakshi & Rajwadi Cuffs",
+    badge: "Handcrafted Fits",
+    image: "https://images.unsplash.com/photo-1611591475102-470e7960098f?auto=format&fit=crop&w=800&q=80",
+    accentColor: "#C5A059",
+  },
+  {
+    id: "cat-3",
+    slug: "oxidised-silver",
+    name: "Oxidised Silver & Tribal",
+    subtitle: "Vintage Dual-Tone Haslis, Ghungroo Chokers & Boho Cuffs",
+    badge: "Boho Heritage",
+    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80",
+    accentColor: "#2B2625",
+  },
+  {
+    id: "cat-4",
+    slug: "daily-wear",
+    name: "Brass & Copper Daily Wear",
+    subtitle: "Anti-Tarnish 18K PVD Waterproof Chains & Minimal Pave Hoops",
+    badge: "Shower Safe",
+    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80",
+    accentColor: "#C5A059",
+  },
+  {
+    id: "cat-5",
+    slug: "western-minimal",
+    name: "Western Minimal",
+    subtitle: "Baroque Freshwater Pearls, Baguette Tennis Bands & Sleek Drops",
+    badge: "Modern Poise",
+    image: "https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=800&q=80",
+    accentColor: "#1C3B2B",
+  },
+  {
+    id: "cat-6",
+    slug: "hair-accessories",
+    name: "Hair Accessories & Mathapattis",
+    subtitle: "Architectural Sheeshpattis, Velvet-Lined Passas & Bridal Combs",
+    badge: "Regal Crowns",
+    image: "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=800&q=80",
+    accentColor: "#C5A059",
+  },
+];

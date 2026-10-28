@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-ivory: #FBF8F3;
+    --color-emerald: #1C3B2B;
+    --color-gold: #C5A059;
+    --color-charcoal: #2B2625;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #FBF8F3;
+    color: #2B2625;
+  }
+
+  body {
+    background-color: #FBF8F3;
+    color: #2B2625;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+  }
+
+  /* Custom Luxury Scrollbar */
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #FBF8F3;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #C5A059;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #A7833D;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gold-shimmer {
+    background: linear-gradient(
+      110deg,
+      #C5A059 0%,
+      #F3ECD7 45%,
+      #C5A059 55%,
+      #A7833D 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: goldShimmer 4s linear infinite;
+  }
+
+  .gold-gradient-bg {
+    background: linear-gradient(135deg, #DFC183 0%, #C5A059 50%, #A7833D 100%);
+  }
+
+  .emerald-gradient-bg {
+    background: linear-gradient(135deg, #27523C 0%, #1C3B2B 60%, #11241A 100%);
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes goldShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
