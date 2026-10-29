@@ -79,7 +79,7 @@ NEXT_PUBLIC_SUPABASE_STORAGE_BUCKET=product-media
 ```
 
 ### 2. Database Migration & RLS
-Run `supabase/migrations/20261029000000_initial_schema.sql` in your Supabase SQL Editor. It automatically:
+Run `supabase/schema.sql` (or `supabase/migrations/20261029000000_initial_schema.sql`) in your Supabase SQL Editor. It automatically:
 - Creates `categories`, `products`, `product_variants`, `product_media`, `orders`, and `order_items`.
 - Enables Row Level Security (RLS) with public read policies.
 - Initializes the `product-media` storage bucket (WebP standard).
@@ -128,8 +128,9 @@ gehnaboxbytanvi/
 ├── tsconfig.json                  # TypeScript configuration & paths
 ├── next.config.mjs                # Next.js image domain configuration (Unsplash + Supabase)
 ├── supabase/
+│   ├── schema.sql                 # Complete database schema, RLS & storage bucket
 │   ├── migrations/
-│   │   └── 20261029000000_initial_schema.sql  # RLS, tables, product-media bucket
+│   │   └── 20261029000000_initial_schema.sql  # Versioned migration
 │   └── seed.sql                   # SQL seed data for categories, products & media
 ├── scripts/
 │   └── seed.mjs                   # CLI seed runner (`npm run db:seed`)

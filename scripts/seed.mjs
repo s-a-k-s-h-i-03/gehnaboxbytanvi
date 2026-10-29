@@ -38,7 +38,7 @@ if (!supabaseUrl || !supabaseKey || supabaseUrl.includes("your_supabase_project_
   console.error("❌ Error: Missing Supabase credentials.");
   console.log("Please create .env.local with NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
   console.log("You can also run the SQL script directly in your Supabase SQL Editor:");
-  console.log("-> supabase/migrations/20261029000000_initial_schema.sql");
+  console.log("-> supabase/schema.sql (or supabase/migrations/20261029000000_initial_schema.sql)");
   console.log("-> supabase/seed.sql\n");
   process.exit(0);
 }
