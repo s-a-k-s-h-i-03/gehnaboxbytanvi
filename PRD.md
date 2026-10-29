@@ -65,20 +65,21 @@ By employing semi-precious stone setting, 18k–24k antique micro-gold plating, 
                     |                    |                    |
                     v                    v                    v
 +-----------------------+ +--------------------+ +-------------------------------+
-|  DATABASE & STORAGE   | |  COMMERCE INTEGR.  | |      MEDIA & PERFORMANCE      |
-|  Supabase / PostgreSQL| |  Razorpay / Cashfree| |  Cloudinary CDN (WebP/AVIF)   |
-|  Row Level Security   | |  WhatsApp Business | |  Vercel Edge Global Hosting   |
-|  Prisma / Kysely ORM  | |  Interakt / Wati   | |  Sub-2s LCP, 98+ Lighthouse   |
+|  DATABASE (POSTGRES)  | |  COMMERCE INTEGR.  | |    SUPABASE MEDIA STORAGE     |
+|  Supabase PostgreSQL  | |  Razorpay / Cashfree| |  Supabase Storage (1GB Free) |
+|  Row Level Security   | |  WhatsApp Business | |  Bucket: `product-media`     |
+|  @supabase/supabase-js| |  Interakt / Wati   | |  WebP Standard • Edge CDN     |
 +-----------------------+ +--------------------+ +-------------------------------+
 ```
 
-### 3.1 Stack Breakdown
+### 3.1 Stack Breakdown & Cloud Services
 - **Frontend Framework:** Next.js (App Router, Server & Client Components) with TypeScript.
-- **Styling Engine:** Tailwind CSS with custom HSL token architecture matching the `#FBF8F3`, `#1C3B2B`, `#C5A059`, and `#2B2625` identity.
+- **Styling Engine:** Tailwind CSS with custom HSL token architecture matching `#FBF8F3` (Ivory), `#1C3B2B` (Emerald), `#C5A059` (Antique Gold), and `#2B2625` (Charcoal).
 - **Animation Suite:** Framer Motion for staggered hero reveals, micro-interactions, spring drawers, and reel modals.
 - **Icons & Typography:** Lucide React, Google Fonts (`Cormorant Garamond`, `Montserrat`).
-- **Data Persistence (Production Target):** PostgreSQL via Supabase or Neon, managed via Prisma Schema.
-- **Local Dev / Edge State:** Dynamic mock data engine (`data/products.json`) with client-side reactive Cart and Wishlist stores.
+- **Database Layer (Supabase PostgreSQL):** Hosted PostgreSQL database on Supabase with granular Row Level Security (RLS) policies isolating read/write privileges.
+- **Media & Asset Storage (Supabase Storage):** Dedicated `product-media` storage bucket (1 GB Free Tier quota) serving high-resolution product imagery compressed to modern WebP standards with public read CDN delivery.
+- **Client Architecture & Resilient Dual-Mode Data Access:** `@supabase/supabase-js` client with an automatic graceful fallback mechanism to `data/products.json` when Supabase credentials are absent or database is in provisioning.
 - **Deployment & Hosting:** Vercel Edge Network with automated CI/CD from GitHub.
 
 ---
@@ -210,6 +211,44 @@ CREATE TABLE order_items (
     quantity INT NOT NULL DEFAULT 1,
     unit_price_inr NUMERIC(10, 2) NOT NULL
 );
+
+-- =========================================================================
+-- Supabase Row Level Security (RLS) Policies
+-- =========================================================================
+ALTER TABLE categories ENABLE ROW LEVEL SECURITY;
+ALTER TABLE products ENABLE ROW LEVEL SECURITY;
+ALTER TABLE product_variants ENABLE ROW LEVEL SECURITY;
+ALTER TABLE product_media ENABLE ROW LEVEL SECURITY;
+ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
+ALTER TABLE order_items ENABLE ROW LEVEL SECURITY;
+
+-- Public Read-Only Access for Storefront Browsing
+CREATE POLICY "Public categories are viewable by everyone" ON categories FOR SELECT USING (true);
+CREATE POLICY "Public products are viewable by everyone" ON products FOR SELECT USING (true);
+CREATE POLICY "Public variants are viewable by everyone" ON product_variants FOR SELECT USING (true);
+CREATE POLICY "Public media is viewable by everyone" ON product_media FOR SELECT USING (true);
+
+-- Customer Order Creation (Public insert, restricted view)
+CREATE POLICY "Anyone can create customer orders" ON orders FOR INSERT WITH CHECK (true);
+CREATE POLICY "Anyone can create order line items" ON order_items FOR INSERT WITH CHECK (true);
+
+-- =========================================================================
+-- Supabase Storage Configuration (product-media Bucket)
+-- =========================================================================
+-- Create public storage bucket for product media assets (WebP format recommended)
+INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+VALUES (
+    'product-media',
+    'product-media',
+    true,
+    5242880, -- 5 MB per asset max
+    ARRAY['image/webp', 'image/jpeg', 'image/png', 'image/avif']
+) ON CONFLICT (id) DO NOTHING;
+
+-- Storage Public Read Policy
+CREATE POLICY "Product media images are publicly accessible"
+ON storage.objects FOR SELECT
+USING (bucket_id = 'product-media');
 ```
 
 ---
@@ -243,3 +282,10 @@ CREATE TABLE order_items (
   - Augmented Reality (AR) "Try-on Choker & Earrings" via WebXR / Camera filter.
   - Custom Bridal Trousseau Curate-Your-Own Box 3D configurator.
   - Multi-currency switcher (USD, GBP, AED, CAD) with DHL Express international shipping calculator.
+
+---
+
+## 8. Living Document Protocol & Architecture Directive
+
+> **LIVING DOCUMENT DIRECTIVE:** Whenever any system architectural change, database schema modification, API contract update, or core business logic change is introduced, this `PRD.md` MUST be automatically updated in the same commit to maintain strict synchronization with the codebase.
+

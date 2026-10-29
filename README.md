@@ -59,7 +59,35 @@ A luxury direct-to-consumer (D2C) boutique web storefront for **gehnaboxbytanvi*
 - **Animations:** Framer Motion (60fps staggered reveals, gestures, spring drawers)
 - **Icons:** Lucide React
 - **Typography:** Next.js Google Fonts (`Cormorant_Garamond`, `Montserrat`)
-- **Data Engine:** Mock dataset in `data/products.json` & `src/data/products.json`
+- **Database & Storage:** Supabase PostgreSQL with Row Level Security (RLS) & Supabase Storage (`product-media` bucket)
+- **Resilient Dual-Mode Data Access:** Live query via `@supabase/supabase-js` with automatic, seamless fallback to `data/products.json` if credentials are unconfigured
+
+---
+
+## ⚡ Supabase Setup & Seeding
+
+### 1. Environment Variables
+Copy `.env.example` to `.env.local`:
+```bash
+cp .env.example .env.local
+```
+Fill in your credentials:
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+NEXT_PUBLIC_SUPABASE_STORAGE_BUCKET=product-media
+```
+
+### 2. Database Migration & RLS
+Run `supabase/migrations/20261029000000_initial_schema.sql` in your Supabase SQL Editor. It automatically:
+- Creates `categories`, `products`, `product_variants`, `product_media`, `orders`, and `order_items`.
+- Enables Row Level Security (RLS) with public read policies.
+- Initializes the `product-media` storage bucket (WebP standard).
+
+### 3. Seed Database
+Run the seed script either via SQL or Node:
+- **SQL Editor:** Run `supabase/seed.sql`
+- **CLI / NPM:** Run `npm run db:seed` (reads `.env.local`)
 
 ---
 
@@ -92,14 +120,21 @@ npm run start
 
 ```
 gehnaboxbytanvi/
-├── PRD.md                         # Full Product Requirement Document
+├── PRD.md                         # Full Product Requirement Document (Living Doc)
 ├── README.md                      # Project Overview & Setup Guide
-├── package.json                   # Dependencies and scripts
+├── .env.example                   # Supabase environment variables template
+├── package.json                   # Dependencies and scripts (incl. db:seed)
 ├── tailwind.config.ts             # Custom brand colors & typography tokens
 ├── tsconfig.json                  # TypeScript configuration & paths
-├── next.config.mjs                # Next.js image domain configuration
+├── next.config.mjs                # Next.js image domain configuration (Unsplash + Supabase)
+├── supabase/
+│   ├── migrations/
+│   │   └── 20261029000000_initial_schema.sql  # RLS, tables, product-media bucket
+│   └── seed.sql                   # SQL seed data for categories, products & media
+├── scripts/
+│   └── seed.mjs                   # CLI seed runner (`npm run db:seed`)
 ├── data/
-│   └── products.json              # Mock dataset in root as requested
+│   └── products.json              # Mock fallback dataset in root
 └── src/
     ├── app/
     │   ├── globals.css            # Brand base styles & gold shimmer animations
@@ -110,7 +145,7 @@ gehnaboxbytanvi/
     │   ├── Hero.tsx               # Split hero with CTAs & floating trust badges
     │   ├── CuratedCategories.tsx  # 6-Category hover zoom grid
     │   ├── ProductCard.tsx        # Image hover flip, stock badges, dual CTAs
-    │   ├── ProductCatalog.tsx     # Filterable product grid (stock, sort, search)
+    │   ├── ProductCatalog.tsx     # Filterable product grid (live Supabase + fallback)
     │   ├── ShoppableReels.tsx     # 9:16 vertical video marquee
     │   ├── ReelModal.tsx          # Shop-this-look reel modal
     │   ├── QuickViewModal.tsx     # Multi-image preview modal with variants
@@ -126,8 +161,13 @@ gehnaboxbytanvi/
     │   ├── products.json          # 8 core products data
     │   └── reels.ts               # Shoppable video reels metadata
     ├── lib/
+    │   ├── services/
+    │   │   └── products.ts        # Resilient Supabase data service + fallback
+    │   ├── supabase/
+    │   │   └── client.ts          # Supabase client & storage URL constructor
     │   └── utils.ts               # WhatsApp link builders, formatINR, cn helper
     └── types/
+        ├── database.types.ts      # Supabase PostgreSQL schema types
         └── index.ts               # TypeScript models (Product, Variant, Reel, etc.)
 ```
 

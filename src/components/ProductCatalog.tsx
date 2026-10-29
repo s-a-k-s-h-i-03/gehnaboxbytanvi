@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-import { Sparkles, SlidersHorizontal, Check, Zap, Clock } from "lucide-react";
-import { Product, ItemStockType } from "@/types";
+import React, { useState, useMemo, useEffect } from "react";
+import { Sparkles, SlidersHorizontal, Zap, Clock, Database as DatabaseIcon } from "lucide-react";
+import { Product } from "@/types";
 import { ProductCard } from "@/components/ProductCard";
 import { useCart } from "@/context/CartContext";
 import productsData from "@/data/products.json";
+import { getProducts } from "@/lib/services/products";
 
 interface ProductCatalogProps {
   selectedCategoryFilter?: string;
@@ -23,12 +24,45 @@ export function ProductCatalog({
   const [activeStockType, setActiveStockType] = useState<string>("ALL");
   const [sortBy, setSortBy] = useState<string>("featured");
 
-  // Keep internal state in sync if parent passed selectedCategoryFilter
-  React.useEffect(() => {
+  // Dynamic products state with graceful fallback initialization
+  const [products, setProducts] = useState<Product[]>(productsData as Product[]);
+  const [dataSource, setDataSource] = useState<"supabase" | "fallback">("fallback");
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  // Sync internal category filter if parent changes it
+  useEffect(() => {
     if (selectedCategoryFilter) {
       setActiveCategory(selectedCategoryFilter);
     }
   }, [selectedCategoryFilter]);
+
+  // Fetch live data from Supabase on mount with graceful fallback
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadCatalog() {
+      setIsLoading(true);
+      try {
+        const response = await getProducts();
+        if (isMounted) {
+          setProducts(response.products);
+          setDataSource(response.source);
+        }
+      } catch (err) {
+        console.warn("Catalog fetch notice, using fallback:", err);
+      } finally {
+        if (isMounted) {
+          setIsLoading(false);
+        }
+      }
+    }
+
+    loadCatalog();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const categories = [
     "All",
@@ -48,7 +82,7 @@ export function ProductCatalog({
   };
 
   const filteredProducts = useMemo(() => {
-    let list = [...(productsData as Product[])];
+    let list = [...products];
 
     // Filter by Category
     if (activeCategory !== "All") {
@@ -86,16 +120,40 @@ export function ProductCatalog({
     }
 
     return list;
-  }, [activeCategory, activeStockType, searchQuery, sortBy]);
+  }, [products, activeCategory, activeStockType, searchQuery, sortBy]);
 
   return (
     <section id="catalog" className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <div className="inline-flex items-center space-x-2 px-3 py-1 bg-gold/15 rounded-full text-gold-dark text-xs font-semibold uppercase tracking-widest mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-gold" />
-          <span>Curated Boutique Collection</span>
+      <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-3">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-gold/15 rounded-full text-gold-dark text-xs font-semibold uppercase tracking-widest">
+            <Sparkles className="w-3.5 h-3.5 text-gold" />
+            <span>Curated Boutique Collection</span>
+          </div>
+
+          {/* Supabase Connection Status Pill */}
+          <div
+            className={`inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-medium border ${
+              dataSource === "supabase"
+                ? "bg-emerald/10 border-emerald/30 text-emerald"
+                : "bg-charcoal/5 border-charcoal/15 text-charcoal/70"
+            }`}
+            title={
+              dataSource === "supabase"
+                ? "Streaming live from Supabase PostgreSQL & Storage"
+                : "Using bundled fallback JSON. Set .env.local to stream live from Supabase"
+            }
+          >
+            <DatabaseIcon className="w-3 h-3 text-gold" />
+            <span>
+              {dataSource === "supabase"
+                ? "⚡ Supabase Live DB"
+                : "Fallback Mode (Supabase Ready)"}
+            </span>
+          </div>
         </div>
+
         <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-charcoal font-normal">
           Adornments Handcrafted for You
         </h2>
@@ -138,7 +196,7 @@ export function ProductCatalog({
                   : "bg-white text-charcoal/70 hover:bg-ivory-200 border border-ivory-border"
               }`}
             >
-              All Pieces ({productsData.length})
+              All Pieces ({products.length})
             </button>
 
             <button
