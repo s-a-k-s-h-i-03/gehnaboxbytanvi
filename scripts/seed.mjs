@@ -124,6 +124,7 @@ async function seed() {
     const categoryId = catSlugToId[item.categorySlug] || categories[0].id;
 
     const productPayload = {
+      id: `b1000000-0000-0000-0000-${String(i + 1).padStart(12, "0")}`,
       sku: `GBT-${item.categorySlug.substring(0, 3).toUpperCase()}-${String(i + 1).padStart(3, "0")}`,
       slug: item.slug,
       title: item.title,

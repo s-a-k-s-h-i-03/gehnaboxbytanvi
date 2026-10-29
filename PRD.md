@@ -289,3 +289,13 @@ USING (bucket_id = 'product-media');
 
 > **LIVING DOCUMENT DIRECTIVE:** Whenever any system architectural change, database schema modification, API contract update, or core business logic change is introduced, this `PRD.md` MUST be automatically updated in the same commit to maintain strict synchronization with the codebase.
 
+---
+
+## 9. Architecture & Schema Changelog
+
+| Date | Scope | Description |
+|---|---|---|
+| 2026-10-29 | Supabase Integration | Replaced Cloudinary with Supabase Storage (`product-media` bucket). Implemented Supabase PostgreSQL with RLS and dual-mode resilient client service. |
+| 2026-10-29 | Database Seed Script | Standardized all deterministic seed IDs in `supabase/seed.sql` and `scripts/seed.mjs` to strict RFC 4122 hexadecimal UUID format (`b1000000-...` for products, `c1000000-...` for categories) ensuring error-free execution in PostgreSQL. |
+
+
